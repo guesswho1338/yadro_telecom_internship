@@ -1,1 +1,1 @@
-# yadro_telecom_internship
+# yadro_telecom_internship task
