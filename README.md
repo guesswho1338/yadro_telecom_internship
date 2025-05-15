@@ -22,8 +22,10 @@
 
 ### Сборка и запуск контейнера:
 
-`docker build -t requests-logger .`
-`docker run -d --name <название контейнера> python-requests`
+```bash
+docker build -t requests-logger .
+docker run -d --name <название контейнера> python-requests
+```
 
 Работу скрипта можно проверить после запуска командой:
 
