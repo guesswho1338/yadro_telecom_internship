@@ -40,13 +40,13 @@ docker logs <название контейнера>
 Были написаны:
  - install-docker.yaml - Плейбук для установки Docker на хост, добавления пользователя в группу docker
  - start-script.yaml - Плейбук для сборки и запуска контейнера с Python скриптом
- - Inventory.yaml - содержит IP и пользователя хоста
+ - inventory.yaml - содержит IP и пользователя хоста
 
 ### Запуск
 
 ### Пинг хостов
 ```bash
-ansible -m ping -i inventory.yaml
+ansible ubuntu -m ping -i inventory.yaml
 ```
 
 ### Установка Docker
