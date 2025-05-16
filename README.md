@@ -51,7 +51,7 @@ ansible -m ping -i inventory.yaml
 
 ### Установка Docker
 ```bash
-ansible-playbook install-docker.yaml -i inventory.yaml
+ansible-playbook install-docker.yaml -i inventory.yaml --ask-become-pass
 ```
 
 ### Запуск контейнера со скриптом
