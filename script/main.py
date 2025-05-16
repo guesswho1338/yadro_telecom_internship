@@ -25,15 +25,19 @@ def query(response) -> int:
 
     return response.status_code
 
-logging.info("Script started")
-
 codes = {'1xx':0,'2xx':0,'3xx':0,'4xx':0,'5xx':0}
 
 # выполнение и обработка запросов, подсчет статус кодов
+logging.info("Script started")
 for i in range(5):
-    r = requests.get(generate_url())
-    logging.info(f"Request {i+1} sent to {r.url}")
-    codes[str(query(r))[0]+"xx"]+=1
+    try:
+        r = requests.get(generate_url(), timeout=15)
+        logging.info(f"Request {i+1} sent to {r.url}")
+        codes[str(query(r))[0]+"xx"]+=1
+    except requests.exceptions.ReadTimeout: # если попадаются статус коды 100 или 103, то выкидываем Exception, так как будет вечное ожидание
+        logging.warning(f"Requests {i+1} timed out")
+        print(f"Request {i+1} timed out")
+
 
 # вывод результата работы скрипта
 print("Result of script:")
